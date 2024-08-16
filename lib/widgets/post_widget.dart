@@ -4,7 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 class PostWidget extends StatelessWidget {
   final String src;
   final String title;
-  const PostWidget({super.key, required this.src, required this.title});
+  final String tag;
+  const PostWidget({super.key, required this.src, required this.title, required this.tag});
 
   @override
   Widget build(BuildContext context) {
@@ -13,22 +14,25 @@ class PostWidget extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(width:double.maxFinite,child: Image.network(
-            src,
-            fit: BoxFit.cover,
-            filterQuality: FilterQuality.high,loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
-            if (loadingProgress == null) {
-              return child; // Image is loaded, return the image
-            } else {
-              return Center(
-                child: CircularProgressIndicator(
-                  value: loadingProgress.expectedTotalBytes != null
-                      ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
-                      : null,
-                ),
-              ); // Return a loading indicator while the image is loading
-            }
-          },)),
+          Hero(
+            tag: tag,
+            child: SizedBox(width:double.maxFinite,child: Image.network(
+              src,
+              fit: BoxFit.cover,
+              filterQuality: FilterQuality.high,loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+              if (loadingProgress == null) {
+                return child; // Image is loaded, return the image
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(
+                    value: loadingProgress.expectedTotalBytes != null
+                        ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
+                        : null,
+                  ),
+                ); // Return a loading indicator while the image is loading
+              }
+            },)),
+          ),
           SizedBox(height: 30,),
           Divider(color: Colors.black,thickness: 1.2, height: 30),
           Text(title,style: GoogleFonts.poppins(fontSize: 26,fontWeight: FontWeight.w700),),

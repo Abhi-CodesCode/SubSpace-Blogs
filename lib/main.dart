@@ -1,8 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:subspace_blog/models/blog.dart';
 import 'package:subspace_blog/pages/home_page.dart';
 
-void main()=>runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
