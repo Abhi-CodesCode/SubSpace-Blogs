@@ -51,13 +51,13 @@ To run this project locally, follow these steps:
 ## Screenshots
 
 ### Home Page
-<img src="screenshots/home_page.png" alt="Home Page" width="500">
+<img src="screenshots/home_page.png" alt="Home Page" width="300">
 
 ### Article Page
-<img src="screenshots/article_page.png" alt="Article Page" width="500">
+<img src="screenshots/article_page.png" alt="Article Page" width="300">
 
 ### Favourites Page
-<img src="screenshots/favourites_page.png" alt="Favourites Page" width="500">
+<img src="screenshots/favourites_page.png" alt="Favourites Page" width="300">
 
 
 ## License
